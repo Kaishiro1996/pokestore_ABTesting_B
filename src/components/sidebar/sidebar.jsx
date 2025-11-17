@@ -131,6 +131,9 @@ export default function Sidebar({ isOpen, setIsOpen }) {
             gaTracking(gaTrackingParams);
             window.mdq = window.mdq || [];
             window.mdq.push(["track", "click_sidebar"]);
+
+            window.mdq = window.mdq || [];
+            window.mdq.push(["track", "time_to_click_sidebar"]);
           }}
         >
           GOLOSINAS{" "}
