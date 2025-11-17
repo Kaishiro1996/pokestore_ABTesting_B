@@ -4,9 +4,14 @@ import { Outlet } from "react-router-dom";
 import MainPage from "../pages/main";
 import Productos from "../pages/Productos/Productos";
 import Sidebar from "../components/sidebar/sidebar";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 function Layout() {
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    // Guardar timestamp de impresión del sidebar/page
+    window.__sidebar_impression_ts = Date.now();
+  }, []);
 
   return (
     <div className="layout relative">

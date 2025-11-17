@@ -7,10 +7,6 @@ import gaTracking from "../../Helpers/gaTracking";
 export default function Sidebar({ isOpen, setIsOpen }) {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    console.log(isOpen);
-  }, [isOpen]);
-
   // Googla Analytics Tracking
   const gaTrackingParams = {
     event: "",
@@ -81,6 +77,18 @@ export default function Sidebar({ isOpen, setIsOpen }) {
             };
             gaTracking(gaTrackingParams);
 
+            const now = Date.now();
+            const impressionTs = window.__sidebar_impression_ts || now;
+            const timeToClick = now - impressionTs;
+
+            gaTracking({
+              event: "sidebar_time_to_click",
+              payload: {
+                ms: timeToClick,
+                seconds: (timeToClick / 1000).toFixed(2),
+              },
+            });
+
             window.mdq = window.mdq || [];
             window.mdq.push(["track", "click_sidebar"]);
           }}
@@ -96,6 +104,19 @@ export default function Sidebar({ isOpen, setIsOpen }) {
             gaTrackingParams.payload = {
               linkclicked: "bolsos",
             };
+
+            const now = Date.now();
+            const impressionTs = window.__sidebar_impression_ts || now;
+            const timeToClick = now - impressionTs;
+
+            gaTracking({
+              event: "sidebar_time_to_click",
+              payload: {
+                ms: timeToClick,
+                seconds: (timeToClick / 1000).toFixed(2),
+              },
+            });
+
             gaTracking(gaTrackingParams);
             window.mdq = window.mdq || [];
             window.mdq.push(["track", "click_sidebar"]);
@@ -113,6 +134,19 @@ export default function Sidebar({ isOpen, setIsOpen }) {
               linkclicked: "Figuras",
             };
             gaTracking(gaTrackingParams);
+
+            const now = Date.now();
+            const impressionTs = window.__sidebar_impression_ts || now;
+            const timeToClick = now - impressionTs;
+
+            gaTracking({
+              event: "sidebar_time_to_click",
+              payload: {
+                ms: timeToClick,
+                seconds: (timeToClick / 1000).toFixed(2),
+              },
+            });
+
             window.mdq = window.mdq || [];
             window.mdq.push(["track", "click_sidebar"]);
           }}
@@ -129,6 +163,19 @@ export default function Sidebar({ isOpen, setIsOpen }) {
               linkclicked: "Golosinas",
             };
             gaTracking(gaTrackingParams);
+
+            const now = Date.now();
+            const impressionTs = window.__sidebar_impression_ts || now;
+            const timeToClick = now - impressionTs;
+
+            gaTracking({
+              event: "sidebar_time_to_click",
+              payload: {
+                ms: timeToClick,
+                seconds: (timeToClick / 1000).toFixed(2),
+              },
+            });
+
             window.mdq = window.mdq || [];
             window.mdq.push(["track", "click_sidebar"]);
 
@@ -148,6 +195,19 @@ export default function Sidebar({ isOpen, setIsOpen }) {
               linkclicked: "billeteras",
             };
             gaTracking(gaTrackingParams);
+
+            const now = Date.now();
+            const impressionTs = window.__sidebar_impression_ts || now;
+            const timeToClick = now - impressionTs;
+
+            gaTracking({
+              event: "sidebar_time_to_click",
+              payload: {
+                ms: timeToClick,
+                seconds: (timeToClick / 1000).toFixed(2),
+              },
+            });
+
             window.mdq = window.mdq || [];
             window.mdq.push(["track", "click_sidebar"]);
           }}
